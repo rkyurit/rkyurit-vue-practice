@@ -27,5 +27,10 @@ body {
   --background-color-dark: #b5b1b188;
 
   --hover-color: #f0f0f0;
+
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
 }
 </style>

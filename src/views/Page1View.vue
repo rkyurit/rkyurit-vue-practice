@@ -4,7 +4,8 @@ import SimpleToast from '../components/SimpleToast.vue'
 import { useSimpleToast } from '../composables/simple-toast'
 import { ref } from 'vue'
 
-const { showToast } = useSimpleToast()
+const { showToast, showDangerToast, showWarningToast, showInfoToast, showSuccessToast } =
+  useSimpleToast()
 const isOpen = ref(false)
 
 const toggleSidePanel = () => {
@@ -16,6 +17,11 @@ const onShowToastClick = (xAxis: 'right' | 'left', yAxis: 'top' | 'bottom') => {
   toastXaxis.value = xAxis
   toastYaxis.value = yAxis
   showToast(`this is ${xAxis}-${yAxis} toast`)
+}
+const onShowColorToastClick = (showToast: (msg: string) => void) => {
+  toastXaxis.value = 'right'
+  toastYaxis.value = 'top'
+  showToast('this is color toast')
 }
 </script>
 
@@ -35,6 +41,16 @@ const onShowToastClick = (xAxis: 'right' | 'left', yAxis: 'top' | 'bottom') => {
       show left-bottom toast
     </button>
     <button type="button" @click="onShowToastClick('left', 'top')">show left-top toast</button>
+  </div>
+  <div class="button-group">
+    <button type="button" @click="onShowColorToastClick(showDangerToast)">show danger toast</button>
+    <button type="button" @click="onShowColorToastClick(showWarningToast)">
+      show warning toast
+    </button>
+    <button type="button" @click="onShowColorToastClick(showInfoToast)">show info toast</button>
+    <button type="button" @click="onShowColorToastClick(showSuccessToast)">
+      show success toast
+    </button>
   </div>
   <SidePanel :is-open="isOpen" :width="300">
     <div>SidePanel Content</div>

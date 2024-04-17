@@ -36,11 +36,8 @@ const toastState = safeInject(toastKey)
 
 <style scoped>
 .toast {
-  /* position: fixed;
-  bottom: 20px;
-  right: 20px; */
   padding: 10px 20px;
-  background-color: #45a254;
+  background-color: v-bind('`var(--${toastState.context}-color)`');
   color: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
