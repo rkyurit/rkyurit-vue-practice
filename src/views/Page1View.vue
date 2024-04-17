@@ -22,7 +22,9 @@ const onShowToastClick = (xAxis: 'right' | 'left', yAxis: 'top' | 'bottom') => {
 <template>
   <div class="page1">This is a page1</div>
   <div class="button-group">
-    <button type="button" @click="toggleSidePanel">show side panel</button>
+    <button type="button" @click="toggleSidePanel">
+      {{ `${isOpen ? 'hide' : 'show'} side panel` }}
+    </button>
   </div>
   <div class="button-group">
     <button type="button" @click="onShowToastClick('right', 'bottom')">
