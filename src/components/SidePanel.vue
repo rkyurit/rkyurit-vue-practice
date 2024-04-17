@@ -13,7 +13,7 @@ watch(
 
 onMounted(async () => {
   // props.isOpenがtrueの場合もスライドアニメーションを実行させるため
-  // 1フレーム待ってからopenを変更する
+  // hide状態の描画をまつ
   await nextTick()
   setTimeout(() => {
     open.value = props.isOpen
