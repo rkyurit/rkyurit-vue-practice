@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SidePanel from '../components/SidePanel.vue'
+import SlidePanel from '../components/SlidePanel.vue'
 import SimpleToast from '../components/SimpleToast.vue'
 import { useSimpleToast } from '../composables/simple-toast'
 import { ref } from 'vue'
@@ -8,7 +8,7 @@ const { showToast, showDangerToast, showWarningToast, showInfoToast, showSuccess
   useSimpleToast()
 const isOpen = ref(false)
 
-const toggleSidePanel = () => {
+const toggleSlidePanel = () => {
   isOpen.value = !isOpen.value
 }
 const toastXaxis = ref<'right' | 'left'>('right')
@@ -28,7 +28,7 @@ const onShowColorToastClick = (showToast: (msg: string) => void) => {
 <template>
   <div class="page1">This is a page1</div>
   <div class="button-group">
-    <button type="button" @click="toggleSidePanel">
+    <button type="button" @click="toggleSlidePanel">
       {{ `${isOpen ? 'hide' : 'show'} side panel` }}
     </button>
   </div>
@@ -52,9 +52,9 @@ const onShowColorToastClick = (showToast: (msg: string) => void) => {
       show success toast
     </button>
   </div>
-  <SidePanel :is-open="isOpen" :width="300">
-    <div>SidePanel Content</div>
-  </SidePanel>
+  <SlidePanel :is-open="isOpen" :width="300">
+    <div>SlidePanel Content</div>
+  </SlidePanel>
   <SimpleToast :x-axis="toastXaxis" :y-axis="toastYaxis" />
 </template>
 
